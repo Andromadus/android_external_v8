@@ -29,7 +29,7 @@ include $(CLEAR_VARS)
 
 ifneq ($(DYNAMIC_SHARED_LIBV8SO),true)
 # Build libv8 and v8shell
-ifeq ($(TARGET_ARCH),arm)
+ifneq ($(filter $(TARGET_ARCH),x86 arm),)
     ifeq ($(ARCH_ARM_HAVE_ARMV7A),true)
     ifneq ($(ARCH_ARM_HAVE_ARMV7A_BUG),true)
     ENABLE_V8_SNAPSHOT = true
